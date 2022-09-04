@@ -18,14 +18,14 @@ S = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 S.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # Set constants
-os.system("fuser 5555/tcp -k")
+# os.system("fuser 5555/tcp -k")
 PORT = 8080
 
 LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
-SERVER_IP = "10.1.0.2"
+SERVER_IP = socket.gethostbyname(HOST_NAME)
 
 # try to connect to server
 try:
