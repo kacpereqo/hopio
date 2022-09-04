@@ -7,4 +7,4 @@ COPY ./sex/server.py /sex/server.py
 
 WORKDIR /sex
 
-CMD [ "python3", "server.py"]
+CMD [ "python3","-u","server.py"]
