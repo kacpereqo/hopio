@@ -29,22 +29,23 @@ LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
+IP_ADDRESS = socket.gethostbyname(HOST_NAME)
 
-external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
-print(external_ip)
+# external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
+# print(external_ip)
 # SERVER_IP = ["10.1.0.1", "10.1.0.2", "10.1.0.3"]
 
 # for x in SERVER_IP:
 try:
-    S.bind((external_ip, PORT))
+    S.bind((IP_ADDRESS, PORT))
 except socket.error as e:
     print(str(e))
-    print(f"[SERVER] Server could not start {external_ip}:{PORT}")
+    print(f"[SERVER] Server could not start {IP_ADDRESS}:{PORT}")
     quit()
 
 S.listen()  # listen for connections
 
-print(f"[SERVER] Server Started with local ip {SERVER_IP}")
+print(f"[SERVER] Server Started with local ip {IP_ADDRESS}")
 
 # dynamic variables
 players = {}
@@ -265,7 +266,7 @@ while True:
     print("[CONNECTION] Connected to:", addr)
 
     # start game when a client on the server computer connects
-    if addr[0] == SERVER_IP and not(start):
+    if addr[0] == IP_ADDRESS and not(start):
         start = True
         start_time = time.time()
         print("[STARTED] Game Started")
