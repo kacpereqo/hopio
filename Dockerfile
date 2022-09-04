@@ -1,7 +1,7 @@
 FROM python:3.8-slim-buster
 
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=80
+EXPOSE 80
 
 COPY ./sex/server.py /sex/server.py
 
