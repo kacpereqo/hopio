@@ -3,6 +3,7 @@ main server script for running agar.io server
 can handle multiple/infinite connections on the same
 local network
 """
+from re import X
 import socket
 from _thread import *
 import pickle
@@ -14,6 +15,7 @@ from datetime import datetime, timedelta
 import urllib.request
 
 external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
+print(external_ip)
 # from bot import Bot
 
 # setup sockets
@@ -28,15 +30,15 @@ LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
-SERVER_IP = external_ip
+SERVER_IP = ["10.1.0.1", "10.1.0.2", "10.1.0.3"]
 
-# try to connect to server
-try:
-    S.bind((SERVER_IP, PORT))
-except socket.error as e:
-    print(str(e))
-    print("[SERVER] Server could not start")
-    quit()
+for x in SERVER_IP:
+    try:
+        S.bind((x, PORT))
+    except socket.error as e:
+        print(str(e))
+        print("[SERVER] Server could not start")
+        quit()
 
 S.listen()  # listen for connections
 
