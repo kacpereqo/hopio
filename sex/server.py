@@ -25,19 +25,23 @@ LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
-SERVER_IP = socket.gethostbyname(HOST_NAME)
+SERVER_IP = "10.1.0.3"
 
 # try to connect to server
 try:
     S.bind((SERVER_IP, PORT))
-except socket.error as e:
-    print(str(e))
-    print("[SERVER] Server could not start")
-    quit()
+    print("[SERVER]", "10.1.0.3")
+except:
+    S.bind(("10.1.0.2", PORT))
+    print("[SERVER]", "10.1.0.2")
+finally:
+    S.bind(("10.1.0.1", PORT))
+    print("[SERVER]", "10.1.0.1")
+
 
 S.listen()  # listen for connections
 
-print(f"[SERVER] Server Started with local ip {SERVER_IP}")
+# print(f"[SERVER] Server Started with local ip {SERVER_IP}")
 
 # dynamic variables
 players = {}
