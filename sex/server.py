@@ -29,7 +29,7 @@ LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
-IP_ADDRESS = socket.gethostbyname(HOST_NAME)
+IP_ADDRESS = "172.110.130.161"
 
 # external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
 # print(external_ip)
