@@ -11,6 +11,9 @@ import random
 import math
 import os
 from datetime import datetime, timedelta
+import urllib.request
+
+external_ip = urllib.request.urlopen('https://ident.me').read().decode('utf8')
 # from bot import Bot
 
 # setup sockets
@@ -25,7 +28,7 @@ LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
-SERVER_IP = "0.0.0.0"
+SERVER_IP = external_ip
 
 # try to connect to server
 try:
