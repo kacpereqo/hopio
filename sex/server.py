@@ -23,7 +23,7 @@ S.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # Set constants
 # os.system("fuser 5555/tcp -k")
-PORT = 8080
+PORT = 80
 
 LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
