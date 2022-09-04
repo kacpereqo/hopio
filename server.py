@@ -19,13 +19,13 @@ S.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 # Set constants
 os.system("fuser 5555/tcp -k")
-PORT = 5555
+PORT = 8080
 
 LAST_POWERUP_DROP = datetime.now()
 W, H = 1600, 830
 
 HOST_NAME = socket.gethostname()
-SERVER_IP = "127.0.0.1"
+SERVER_IP = "10.1.0.2"
 
 # try to connect to server
 try:
